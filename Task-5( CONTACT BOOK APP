@@ -1,0 +1,74 @@
+#_____CONTACT BOOK APP_______
+contacts={}
+while True:
+    print('1.create contact')
+    print('2.view contact')
+    print('3,update contact')
+    print('4.delete contact')
+    print('5.search contact')
+    print('6.count contact')
+    print('7.Exit')
+    print("WELCOME TO MY CONTACT BOOK APP")
+    choice=input("Enter your choice=")
+    if choice=='1':
+        name=input("Enter your name=")
+        if name in contacts:
+            print(f"name {name} already exists!")
+        else:
+            mobile_number=input("Enter your mobile number=")
+            email=input("Enter your email=")
+            address=input("Enter yout address=")
+            contacts[name]={'name':name,'mobile_number':mobile_number,'email':email,'address':address}
+            print(f"name {name} has been created sucessfully!!")
+    elif choice=='2':
+        name=input("Enter your view contact name=")
+        if name in contacts:
+            comtact=contacts[name]
+            print(f'name:{name},mobile_number:{mobile_number},email:{email},address:{address}')
+        else:
+            print("Viewed not found!!")
+    elif choice=='3':
+        name=input("Enter your name to update=")
+        if name in contacts:
+            mobile_number=input("Enter your mobile_number")
+            email=input("Enter your email=")
+            address=input("Enter your address=")
+            contacts[name]={'name':name,'mobile_number':mobile_number,'email':email,'address':address}
+            print(f"Your contact name {name} has been updated successfully!!")
+            
+        else:
+            print("Updated name not found!!")
+    elif choice=='4':
+        number=input("Enter your name to delete=")
+        if name in contacts:
+            del contacts[name]
+            print(f"The name {name} was deleted successfully!!")
+        else:
+            print("Deleted name not found!!")
+    elif choice=='5':
+        search_name=input("Enter your name to search=")
+        found=False
+        for name,contact in contacts.items():
+            if search_name.lower() in name.lower():
+                print(f'Found-Name{name},mobile_number:{mobile_number},email:{email},address{address}')
+                found=True
+        if not found:
+            print('no contact found with that name!')
+    elif choice=='6':
+        print(f'the contacts are:{len(contacts)}')
+    elif choice=='7':
+        print('bye bye im closing the app!!!.......')
+        break;
+    else:
+        print('ERROR!!')
+        
+                
+            
+        
+        
+        
+        
+        
+            
+        
+            
